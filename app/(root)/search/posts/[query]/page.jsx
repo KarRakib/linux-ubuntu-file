@@ -1,8 +1,8 @@
 "use client"
 
-import Loader from "@/app/components/Loader";
+import PostCard from "@/app/components/PostCard";
 import { useUser } from "@clerk/nextjs";
-import PostCard from "@components/cards/PostCard";
+
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -41,7 +41,7 @@ const SearchPost = () => {
       </div>
 
       {searchedPosts.map((post) => (
-        <PostCard key={post._id} post={post} creator={post.creator} loggedInUser={user} update={getSearchedPosts}/>
+        <PostCard key={post?._id} post={post} creator={post?.creator} loggedInUser={user} update={getSearchedPosts}/>
       ))}
     </div>
   );

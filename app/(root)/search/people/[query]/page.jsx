@@ -1,8 +1,9 @@
 "use client"
 
+import Loader from "@/app/components/Loader";
+import UserCard from "@/app/components/UserCard";
 import { useUser } from "@clerk/nextjs";
-import Loader from "@components/Loader";
-import UserCard from "@components/cards/UserCard";
+
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -39,7 +40,7 @@ const SearchPeople = () => {
       </div>
 
       {searchedPeople.map((person) => (
-        <UserCard key={person._id} userData={person} update={getSearchedPeople}/>
+        <UserCard key={person?._id} userData={person} update={getSearchedPeople}/>
       ))}
     </div>
   );
